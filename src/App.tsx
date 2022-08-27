@@ -26,7 +26,7 @@ function App() {
     localStorage.setItem("todos", JSON.stringify(removeTodo));
   };
 useEffect(()=>{
-  localStorage.setItem("todos", JSON.stringify(todos));
+  localStorage.setItem("todos", JSON.stringify(""));
 },[])
 
   // editing todo
