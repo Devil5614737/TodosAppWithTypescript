@@ -3,7 +3,7 @@
 ### Links
 
 
-- Live Site URL: [Add live site URL here](https://todos-app-with-typescript.vercel.app/)
+- Live Site URL: [https://todos-app-with-typescript.vercel.app/](https://todos-app-with-typescript.vercel.app/)
 
 ### Built with
 
