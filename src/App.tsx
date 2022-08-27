@@ -29,7 +29,7 @@ function App() {
   // editing todo
   const handleEditing = (id: number, title: string) => {
     setTodos(
-      todos.map((todo) =>
+      todos&&todos.map((todo) =>
         todo.id === id
           ? { ...todo, editing: !todo.editing, title }
           : {
