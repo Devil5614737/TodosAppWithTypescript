@@ -19,25 +19,29 @@ function App() {
     }
   };
 
-    // removing todo from todos array
+  // removing todo from todos array
   const handleDelete = (id: number) => {
     const removeTodo = todos.filter((todo) => todo.id !== id);
     setTodos(removeTodo);
     localStorage.setItem("todos", JSON.stringify(removeTodo));
   };
+useEffect(()=>{
+  localStorage.setItem("todos", JSON.stringify(todos));
+},[])
 
   // editing todo
   const handleEditing = (id: number, title: string) => {
     setTodos(
-      todos&&todos.map((todo) =>
-        todo.id === id
-          ? { ...todo, editing: !todo.editing, title }
-          : {
-              ...todo,
-              editing: false,
-              todo,
-            }
-      )
+      todos &&
+        todos.map((todo) =>
+          todo.id === id
+            ? { ...todo, editing: !todo.editing, title }
+            : {
+                ...todo,
+                editing: false,
+                todo,
+              }
+        )
     );
   };
 
