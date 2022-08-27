@@ -4,10 +4,22 @@ import { Todos } from "./components/Todos";
 import { TodoI } from "./interfaces/TodoI";
 
 function App() {
-  const [todos, setTodos] = useState<TodoI[]>(
-    JSON.parse(localStorage.getItem("todos") || "")
+  const [todos, setTodos] = useState<TodoI[]>(getTodosFromLS()
   );
+                    
+  function getTodosFromLS(){
+    const data = localStorage.getItem('todos');
+    if(data){
+      return JSON.parse(data)
+    }
+    else{
+      return []
+    }
+  }
 
+
+
+  
   // additing todo to todos array
   const handleAddTodo = (title: string) => {
     const todo = {
@@ -25,9 +37,7 @@ function App() {
     setTodos(removeTodo);
     localStorage.setItem("todos", JSON.stringify(removeTodo));
   };
-useEffect(()=>{
-  localStorage.setItem("todos", JSON.stringify(""));
-},[])
+
 
   // editing todo
   const handleEditing = (id: number, title: string) => {
